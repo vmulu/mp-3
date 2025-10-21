@@ -24,6 +24,11 @@ const StyledMain = styled.main`
         margin: 10px;
     }
 
+    @media (max-width: 1000px) {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+
 `
 export default function Projects() {
     return (

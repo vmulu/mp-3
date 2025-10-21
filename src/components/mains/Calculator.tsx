@@ -78,7 +78,7 @@ export default function Calculator() {
     function doClear() {
         setA(String(0));
         setB(String(0));
-        setResult(String(null));
+        setResult("");
         doColor(0);
     }
 
