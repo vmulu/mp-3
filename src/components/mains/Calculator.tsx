@@ -2,9 +2,9 @@ import { useState } from "react";
 import styled from 'styled-components'
 
 export default function Calculator() {
-    const [a, setA] = useState(0);
-    const [b, setB] = useState(0);
-    const [result, setResult] = useState<number | null>(null);
+    const [a, setA] = useState("");
+    const [b, setB] = useState("");
+    const [result, setResult] = useState("");
     const [textColor, setTextColor] = useState("white");
 
 
@@ -36,49 +36,49 @@ export default function Calculator() {
 
     // addition
     function doAdd() {
-        const result = a + b
-        setResult(result);
+        const result = Number(a) + Number(b)
+        setResult(String(result));
         doColor(result);
     }
 
     // subtraction
     function doSub() {
-        const result = a - b
-        setResult(result);
+        const result = Number(a) - Number(b)
+        setResult(String(result));
         doColor(result);
     }
 
     // multiplication
     function doMul() {
-        const result = a * b;
-        setResult(result);
+        const result = Number(a) * Number(b);
+        setResult(String(result));
         doColor(result);
     }
 
     // division
     function doDiv() {
-        const result = a / b;
-        setResult(b === 0
-            ? NaN
-            : result);
+        const result = Number(a) / Number(b);
+        setResult(Number(b) === 0
+            ? String(NaN)
+            : String(result));
         doColor(result);
      }
 
     // power
     function doPow() {
         let total = 1;
-        for (let i = 0; i < b; i++){
-            total *= a;
+        for (let i = 0; i < Number(b); i++){
+            total *= Number(a);
         }
-        setResult(total);
+        setResult(String(total));
         doColor(total);
     }
 
     // clearing results
     function doClear() {
-        setA(0);
-        setB(0);
-        setResult(null);
+        setA(String(0));
+        setB(String(0));
+        setResult(String(null));
         doColor(0);
     }
 
@@ -89,8 +89,8 @@ export default function Calculator() {
             </h2>
 
             {/* user inputs */}
-            <label htmlFor="a"></label><input type="number" id="a" value={a} onChange={(e) => setA(Number(e.target.value))}/>
-            <label htmlFor="b" ></label><input type="number" id="b" value={b} onChange={(e) => setB(Number(e.target.value))}/>
+            <label htmlFor="a"></label><input type="number" id="a" value={a} onChange={(e) => setA(e.target.value)}/>
+            <label htmlFor="b" ></label><input type="number" id="b" value={b} onChange={(e) => setB(e.target.value)}/>
 
             {/* buttons */}
             <button onClick={doAdd}>+</button>
