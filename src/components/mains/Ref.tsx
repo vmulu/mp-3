@@ -1,17 +1,44 @@
+import styled from "styled-components";
 
+const StyledHTwo = styled.h2`
+
+    margin: 25px 50px;
+    text-align: center;
+
+`
+
+const StyledHFour = styled.h4`
+    margin-top: 50px;
+    margin-bottom: 10px;
+    text-align: left;
+    padding-left: 70px
+`
+
+const StyledTable = styled.table`
+
+    width: 80%;
+    margin: auto;
+
+
+    th, td {
+        border: 1px solid #450920;
+        padding: 8px 10px;
+    }
+
+`
 export default function Ref() {
     return (
         <>
             <main>
                 <title> References | Victoria's Resume </title>
-                <h2>
+                <StyledHTwo>
                         References
-                </h2>
+                </StyledHTwo>
 
-                    <h4>
+                    <StyledHFour>
                         Professional
-                    </h4>
-                    <table>
+                    </StyledHFour>
+                    <StyledTable>
                         <tr>
                             <th>
                                 Name
@@ -56,12 +83,12 @@ export default function Ref() {
                                 hjames@bu.edu
                             </td>
                         </tr>
-                    </table>
+                    </StyledTable>
 
-                    <h4>
+                    <StyledHFour>
                         Personal
-                    </h4>
-                    <table>
+                    </StyledHFour>
+                    <StyledTable>
                         <tr>
                             <th>
                                 Name
@@ -106,7 +133,7 @@ export default function Ref() {
                                 mmulu@bu.edu
                             </td>
                         </tr>
-                    </table>
+                    </StyledTable>
             </main>
         </>
     )

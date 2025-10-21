@@ -1,29 +1,68 @@
 import { useState } from "react";
+import styled from 'styled-components'
 
 export default function Calculator() {
     const [a, setA] = useState(0);
     const [b, setB] = useState(0);
-    const [result, setResult] = useState(0);
+    const [result, setResult] = useState<number | null>(null);
+    const [textColor, setTextColor] = useState("white");
+
+
+    const ResultDiv = styled.div`
+        color: ${textColor}
+    `;
+
+    const CalcDiv = styled.div`
+
+        background-color: lightpink;
+        color: white;
+        text-align: center;
+        margin: 0 auto;
+
+        button{
+            background-color: #A53860;
+            margin-top: 10px;
+        }
+    `;
+
+    // neg number changing
+    function doColor(result: number) {
+        if (result < 0) {
+          setTextColor("red");
+        } else {
+          setTextColor("white");
+        }
+      }
 
     // addition
     function doAdd() {
-        setResult(a + b);
+        const result = a + b
+        setResult(result);
+        doColor(result);
     }
 
     // subtraction
     function doSub() {
-        setResult(a - b);
+        const result = a - b
+        setResult(result);
+        doColor(result);
     }
 
     // multiplication
     function doMul() {
-        setResult(a * b);
+        const result = a * b;
+        setResult(result);
+        doColor(result);
     }
 
     // division
     function doDiv() {
-        setResult(a / b);
-    }
+        const result = a / b;
+        setResult(b === 0
+            ? NaN
+            : result);
+        doColor(result);
+     }
 
     // power
     function doPow() {
@@ -32,23 +71,26 @@ export default function Calculator() {
             total *= a;
         }
         setResult(total);
+        doColor(total);
     }
 
     // clearing results
     function doClear() {
         setA(0);
         setB(0);
-        setResult(0);
+        setResult(null);
+        doColor(0);
     }
 
     return(
-        <div id="calc">
+        <CalcDiv>
             <h2>
                 Victoria's Mini Calculator Project
             </h2>
 
-            <label htmlFor="a"> </label><input id="a"/>
-            <label htmlFor="b"> </label><input id="b"/>
+            {/* user inputs */}
+            <label htmlFor="a"></label><input type="number" id="a" value={a} onChange={(e) => setA(Number(e.target.value))}/>
+            <label htmlFor="b" ></label><input type="number" id="b" value={b} onChange={(e) => setB(Number(e.target.value))}/>
 
             {/* buttons */}
             <button onClick={doAdd}>+</button>
@@ -58,9 +100,11 @@ export default function Calculator() {
             <button onClick={doPow}>**</button>
             <button onClick={doClear}>Clear</button>
 
-            {/* return results */}
-            result
-        </div>
+            <ResultDiv>
+                {/* return results */}
+                <h3>Result: {result}</h3>
+            </ResultDiv>
+        </CalcDiv>
 
     )
 }

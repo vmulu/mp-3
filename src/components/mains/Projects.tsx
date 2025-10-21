@@ -1,16 +1,41 @@
 
 import Calculator from "./Calculator"
+import styled from "styled-components";
+
+const StyledMain = styled.main`
+
+    margin: 0 100px;
+
+    h2 {
+        margin: 25px 50px;
+        text-align: center;
+    }
+
+    #itemfirst{
+        margin-bottom: 10%;
+        margin-top: 10%;
+    }
+
+    #item{
+        margin-bottom: 10%;
+    }
+
+    p{
+        margin: 10px;
+    }
+
+`
 export default function Projects() {
     return (
         <>
-            <main>
+            <StyledMain>
                 <title> Projects | Victoria's Resume </title>
                     <h2>
                         Projects
                     </h2>
 
-                    <div id="collection">
-                        <div id="item">
+                    <div>
+                        <div id="itemfirst">
                             <h3>
                                 Connect 4 | <em>Python</em>
                             </h3>
@@ -49,7 +74,7 @@ export default function Projects() {
                              </p>
                         </div>
                     </div>
-            </main>
+            </StyledMain>
 
             {/* using calculator component */}
             <Calculator/>

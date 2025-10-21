@@ -1,15 +1,40 @@
+import styled from "styled-components";
+
+const StyledMain = styled.main`
+
+    margin: 0 100px;
+
+    h2 {
+        margin: 25px 50px;
+        text-align: center;
+    }
+
+    #itemfirst{
+        margin-bottom: 10%;
+        margin-top: 10%;
+    }
+
+    #item{
+        margin-bottom: 10%;
+    }
+
+    p{
+        margin: 10px;
+    }
+
+`
 
 export default function Employ() {
     return (
         <>
-            <main>
+            <StyledMain>
                 <title> Employment | Victoria's Resume </title>
                     <h2>
                         Employment
                     </h2>
 
-                    <div id="collection">
-                        <div id="item">
+                    <div>
+                        <div id="itemfirst">
                             <h3>
                                 Athena Health | <em>Software Engineer Intern</em>
                             </h3>
@@ -56,7 +81,7 @@ export default function Employ() {
                              </p>
                         </div>
                     </div>
-            </main>
+            </StyledMain>
         </>
     )
 }
