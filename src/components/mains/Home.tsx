@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import photo from "../../assets/photo.jpg";
 
 const StyledMain = styled.main`
 
@@ -55,7 +56,7 @@ export default function Home() {
                     </h2>
 
                     {/* figure out how to fix image */}
-                    <img src="src/assets/Muluget,Victoria.jpg" alt="Victoria Mulugeta"/>
+                    <img src={photo} alt="Victoria Mulugeta"/>
 
                     <p>
                         My name is Victoria Mulugeta. I am a senior studying Computer Science at Boston University.
